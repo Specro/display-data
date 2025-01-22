@@ -1,5 +1,5 @@
 <?php
-namespace DataDisplay;
+namespace DataDisplay\Models;
 
 /**
  * Model to store user data.
