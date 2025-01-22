@@ -27,6 +27,7 @@ class App
     public function __construct($config)
     {
         $this->config = $config;
+        $this->controller = new FrontController($this->config);
     }
 
     /**
@@ -35,5 +36,6 @@ class App
      */
     public function run()
     {
+        $this->controller->handleRequest();
     }
 }
