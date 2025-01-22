@@ -89,6 +89,13 @@ class FrontController extends Controller
      */
     protected function readFile($file)
     {
-        return [];
+        // get file mime type and construct correct file reader class using the config
+        $file_type = mime_content_type($file['tmp_name']);
+        $reader_class = 'DataDisplay\Readers\\' . $this->config['file_types'][$file_type];
+        $reader = new $reader_class();
+        
+        $users = $reader->read($file['tmp_name']);
+
+        return $users;
     }
 }
