@@ -78,7 +78,7 @@ class FrontController extends Controller
 
         $file_type = mime_content_type($file['tmp_name']);
         if (!isset($this->config['file_types'][$file_type])) {
-            throw new \RuntimeException('Invalid file format');
+            throw new \RuntimeException('Invalid file type');
         }
     }
 
